@@ -11,7 +11,8 @@ namespace gestion_abonnements
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=abonnements.db");
+            string dbPath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, @"..\..\..\abonnements.db"));
+            optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }
     }
 }
